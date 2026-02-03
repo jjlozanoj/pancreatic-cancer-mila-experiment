@@ -1,3 +1,7 @@
+"""
+This script was used for the TCGA 40-case experiment.
+Paths may need to be adapted for different environments.
+"""
 import os
 import pandas as pd
 import torch
@@ -266,3 +270,4 @@ for epoch in tqdm(range(1, num_epochs + 1), desc="Training epochs"):
     tqdm.write(f"✅ Saved patch-level attention weights for epoch {epoch}")
 
 #nohup python mila_v2.py> mila_v2.txt
+
