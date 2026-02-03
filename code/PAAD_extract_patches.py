@@ -1,3 +1,7 @@
+"""
+This script was used for the TCGA 40-case experiment.
+Paths may need to be adapted for different environments.
+"""
 import os
 import fnmatch
 import numpy as np
@@ -101,4 +105,5 @@ if __name__ == "__main__":
 #images_path = "/content/drive/MyDrive/PDAC/IMAGES/Infiltrating duct carcinoma, NOS/"   # folder with .svs
 #patches_path = "/content/drive/MyDrive/PDAC/PATCHES"
 #patch_size = 224
+
 #magnification = 20
