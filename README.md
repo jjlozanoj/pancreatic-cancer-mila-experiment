@@ -22,3 +22,7 @@ easily extensible to additional cohorts in future experiments.
 **`figures/`**  
   Contains a curated subset of qualitative examples (e.g., attention and
   segmentation visualizations) selected for inspection and presentation.
+
+The directory structure is cohort-agnostic by design and allows new datasets
+to be incorporated by adding new metadata files and experiment folders,
+without modifying the existing codebase.
