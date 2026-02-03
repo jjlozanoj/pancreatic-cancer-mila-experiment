@@ -1,3 +1,7 @@
+"""
+This script was used for the TCGA 40-case experiment.
+Paths may need to be adapted for different environments.
+"""
 import timm
 from timm.data import resolve_data_config
 from timm.data.transforms_factory import create_transform
@@ -116,4 +120,5 @@ print(df_latents.head())
 # nohup python foundational_latents_uni2-h.py --part 3 > foundational_latents_uni2-h.txt 2>&1 &
 #(later)
 # nohup python foundational_latents_uni2-h.py --part 4 > foundational_latents_uni2-h.txt 2>&1 &
+
 
