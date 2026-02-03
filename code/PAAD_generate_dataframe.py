@@ -1,3 +1,7 @@
+"""
+This script was used for the TCGA 40-case experiment.
+Paths may need to be adapted for different environments.
+"""
 import os, fnmatch
 import pandas as pd
 import numpy as np
@@ -46,5 +50,6 @@ for i, case_subset in enumerate(splits, 1):
     out_path = f"patches_cases_balanced_part{i}.pkl"
     df_part.to_pickle(out_path)
     print(f"✅ Part {i}: {len(df_part)} patches from {len(case_subset)} cases → saved to {out_path}")
+
 
 #python paad_split_datrafame.py
