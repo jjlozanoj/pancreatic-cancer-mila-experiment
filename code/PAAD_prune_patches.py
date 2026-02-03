@@ -1,3 +1,7 @@
+"""
+This script was used for the TCGA 40-case experiment.
+Paths may need to be adapted for different environments.
+"""
 import re
 import os
 import shutil
@@ -73,3 +77,4 @@ def prune_all_subfolders(patches_path, patch_size, connectivity=8, min_patches=5
 prune_all_subfolders(patches_path, patch_size=224, connectivity=8, min_patches=40)
 
 # nohup python -u PAAD_prune_patches.py > PAAD_prune_patches.txt
+
