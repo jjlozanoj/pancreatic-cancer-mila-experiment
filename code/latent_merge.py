@@ -1,3 +1,7 @@
+"""
+This script was used for the TCGA 40-case experiment.
+Paths may need to be adapted for different environments.
+"""
 import os
 import pandas as pd
 from tqdm import tqdm
@@ -60,5 +64,6 @@ print(f"❓ Missing latents: {df_missing.shape[0]} rows, {df_missing['case_id'].
 df_valid.to_pickle("/home/jjlozanoj/Scripts/latents/valid-latents.pkl")
 df_removed.to_pickle("/home/jjlozanoj/Scripts/latents/removed-latents.pkl")
 df_missing.to_pickle("/home/jjlozanoj/Scripts/latents/missing-latents.pkl")
+
 
 print("💾 Saved valid, removed, and missing latent files with updated paths where needed.")
