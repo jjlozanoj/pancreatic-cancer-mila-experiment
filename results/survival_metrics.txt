@@ -1,0 +1,24 @@
+=== Survival analysis results ===
+Best penalizer: 1.0
+L1 ratio (1.0=LASSO): 0.1
+
+C-index TRAIN: 0.8993
+C-index TEST : 0.8333
+C-index TRAIN: 0.8993  (95% CI 0.789–0.983)
+C-index TEST : 0.8333  (95% CI 0.500–1.000)
+
+Log-rank p TRAIN: 1.035504e-04
+Log-rank p TEST : 1.413055e-01
+
+T horizon TRAIN (months): 60.00
+T horizon TEST  (months): 43.46
+
+Saved figures:
+- km_train.png
+- km_test.png
+- box_train.png
+- box_test.png
+Case-embeddings cache: df_case_embeddings.pkl
+
+HR (High vs Low) TRAIN: 18.77 (95% CI 2.45–143.57), p=7.00e-03
+HR (High vs Low) TEST : 5.43 (95% CI 0.38–77.87), p=5.47e-04

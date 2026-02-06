@@ -1,0 +1,24 @@
+{
+  "case": "TCGA-F2-A7TX",
+  "svs_path": "/home/facanor/Documents/NAS/jjlozanoj/Data/PAAD/Images/TCGA-F2-A7TX_DX1.svs",
+  "thumb_size": [
+    2999,
+    1304
+  ],
+  "dims_level0": [
+    171359,
+    74498
+  ],
+  "n_patches_case": 111613,
+  "n_patches_with_weight": 111613,
+  "n_top_patches": 5581,
+  "n_valid_top_patches_used": 5581,
+  "thr_quantile": 0.99,
+  "thr_value": 0.9999768733978271,
+  "n_components": 0,
+  "components": [],
+  "split": "train",
+  "os_event": 1,
+  "mask_high_explain": "Binary mask where heatmap >= quantile THR_QUANTILE (computed on heat_disp 0..1).",
+  "note_peak_centered_crops": "Crops are centered at the peak (max heat) inside each connected component."
+}

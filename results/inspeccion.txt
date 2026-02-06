@@ -1,0 +1,171 @@
+
+==========================================================================================
+0) Carga de archivos
+==========================================================================================
+Cargando: df_latents_with_clinical.pkl
+OK. type: <class 'pandas.core.frame.DataFrame'>
+
+==========================================================================================
+1) df_latents_with_clinical.pkl — Diagnóstico del DF de embeddings
+==========================================================================================
+Filas (patches): 3,031,315
+Columnas totales: 1,539
+
+==========================================================================================
+1.1) Desglose columnas: embeddings vs metadata
+==========================================================================================
+Embeddings (colname int/dígito): 1,536
+Metadata/Clínicas (no-embedding): 3
+Ejemplo embeddings: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+Metadata: ['image_path', 'case', 'label']
+
+==========================================================================================
+1.2) Tipos y nulos
+==========================================================================================
+       col  dtype  nulls  null_%
+image_path object      0     0.0
+      case object      0     0.0
+     label  int64      0     0.0
+
+==========================================================================================
+1.3) Derivación de wsi_id desde image_path (si aplica)
+==========================================================================================
+Sample (n=20,000) — wsi_id nulos: 0 (0.00%)
+Ejemplos wsi_id (sample): ['TCGA-2J-AABE_DX1']
+WSI únicos (sample): 1
+
+Sugerencia: si el porcentaje de nulos en wsi_id es ~0%,
+puedes crear df['wsi_id']=... y luego usarlo para unir con splits o clínica a nivel slide.
+
+==========================================================================================
+1.4) Búsqueda de columnas clave en metadata (IDs/split/sobrevida)
+==========================================================================================
+- wsi_slide: []
+- patient: []
+- patch: []
+- split: []
+- surv_time: []
+- surv_event: []
+
+==========================================================================================
+1.5) Vista rápida (head) SOLO metadata
+==========================================================================================
+                                                                                          image_path         case  label
+/home/jjlozanoj/NAS/Data/PAAD/Patches/TCGA-2J-AABE_DX1/TCGA-2J-AABE_DX1_20x_224px_x123200_y22848.jpg TCGA-2J-AABE      1
+ /home/jjlozanoj/NAS/Data/PAAD/Patches/TCGA-2J-AABE_DX1/TCGA-2J-AABE_DX1_20x_224px_x45920_y31136.jpg TCGA-2J-AABE      1
+ /home/jjlozanoj/NAS/Data/PAAD/Patches/TCGA-2J-AABE_DX1/TCGA-2J-AABE_DX1_20x_224px_x44128_y66080.jpg TCGA-2J-AABE      1
+ /home/jjlozanoj/NAS/Data/PAAD/Patches/TCGA-2J-AABE_DX1/TCGA-2J-AABE_DX1_20x_224px_x48608_y67200.jpg TCGA-2J-AABE      1
+/home/jjlozanoj/NAS/Data/PAAD/Patches/TCGA-2J-AABE_DX1/TCGA-2J-AABE_DX1_20x_224px_x114912_y38752.jpg TCGA-2J-AABE      1
+
+==========================================================================================
+2) filtered_clinical_data.csv — Diagnóstico (clínica y llaves)
+==========================================================================================
+shape: (40, 42)
+columns (preview): ['Study ID', 'Patient ID', 'Sample ID', 'Diagnosis Age', 'American Joint Committee on Cancer Publication Version Type', 'Alcohol History Documented', 'Biopsy Site', 'Cancer Type', 'Cancer Type Detailed', 'Disease Free (Months)', 'Disease Free Status', 'Disease Type', 'Ethnicity Category', 'Fraction Genome Altered', 'ICD-10 Classification', 'Morphology', 'Mutation Count', 'Oncotree Code', 'Overall Survival (Months)', 'Overall Survival Status', 'Other Patient ID', 'Other Sample ID', 'AJCC Pathologic M-Stage', 'AJCC Pathologic N-Stage', 'AJCC Pathologic Stage', 'AJCC Pathologic T-Stage', 'Primary Diagnosis', 'Patient Primary Tumor Site', 'Prior Malignancy', 'Prior Treatment', 'Project Identifier', 'Project Name', 'Project State', 'Race Category', 'Number of Samples Per Patient', 'Sample Type', 'Sex', 'Years Smoked', 'Person Cigarette Smoking History Pack Year Value', "Patient's Vital Status", 'Year of Death', 'Year of Diagnosis'] 
+
+==========================================================================================
+2.1) Tipos (conteo por dtype)
+==========================================================================================
+object     30
+float64     7
+int64       3
+bool        2
+Name: count, dtype: int64
+
+==========================================================================================
+2.2) Head (5 filas)
+==========================================================================================
+     Study ID   Patient ID       Sample ID  Diagnosis Age American Joint Committee on Cancer Publication Version Type Alcohol History Documented                    Biopsy Site               Cancer Type      Cancer Type Detailed  Disease Free (Months) Disease Free Status                 Disease Type Ethnicity Category  Fraction Genome Altered ICD-10 Classification Morphology  Mutation Count Oncotree Code  Overall Survival (Months) Overall Survival Status                     Other Patient ID                      Other Sample ID AJCC Pathologic M-Stage AJCC Pathologic N-Stage AJCC Pathologic Stage AJCC Pathologic T-Stage                Primary Diagnosis Patient Primary Tumor Site  Prior Malignancy  Prior Treatment Project Identifier              Project Name Project State Race Category  Number of Samples Per Patient         Sample Type    Sex  Years Smoked  Person Cigarette Smoking History Pack Year Value Patient's Vital Status  Year of Death  Year of Diagnosis
+paad_tcga_gdc TCGA-2J-AAB8 TCGA-2J-AAB8-01             71                                                         7th                      False               Head of pancreas Pancreatic Adenocarcinoma Pancreatic Adenocarcinoma                    NaN                 nan Ductal and Lobular Neoplasms                nan                   0.0543                 C25.0     8500/3            40.0          PAAD                   2.628121                0:LIVING 2e8f90f4-aed3-43b0-985c-dfdc2581f24f 5f27b568-aa1b-4720-a176-f4a8c3fe7e40                      M0                      N1             Stage IIB                      T3 Infiltrating duct carcinoma, NOS                   Pancreas             False            False          TCGA-PAAD Pancreatic Adenocarcinoma      released         WHITE                              1 Primary solid Tumor   Male           NaN                                               NaN                  Alive            NaN               2012
+paad_tcga_gdc TCGA-2J-AABE TCGA-2J-AABE-01             73                                                         7th                       True               Body of pancreas Pancreatic Adenocarcinoma Pancreatic Adenocarcinoma              22.224414       0:DiseaseFree Ductal and Lobular Neoplasms                nan                   0.1923                 C25.1     8500/3            29.0          PAAD                  22.207622                0:LIVING 58c1c391-5ea3-4432-bb1e-e7e1974954bc 30c8e41c-2c27-4927-a4e8-c1ac81806d13                      M0                      N0             Stage IIA                      T3 Infiltrating duct carcinoma, NOS                   Pancreas             False            False          TCGA-PAAD Pancreatic Adenocarcinoma      released         WHITE                              1 Primary solid Tumor   Male          10.0                                               2.2                  Alive            NaN               2012
+paad_tcga_gdc TCGA-2J-AABK TCGA-2J-AABK-01             71                                                         7th                      False               Head of pancreas Pancreatic Adenocarcinoma Pancreatic Adenocarcinoma              15.912154       0:DiseaseFree Ductal and Lobular Neoplasms                nan                   0.0348                 C25.0     8500/3            26.0          PAAD                  15.900131                0:LIVING c24c54ea-4095-460d-bb53-e3629a56cd62 91c8bca0-b881-4439-b186-d309c513faa2                      M0                      N1             Stage IIB                      T3 Infiltrating duct carcinoma, NOS                   Pancreas             False            False          TCGA-PAAD Pancreatic Adenocarcinoma      released         WHITE                              1 Primary solid Tumor   Male           NaN                                               NaN                  Alive            NaN               2012
+paad_tcga_gdc TCGA-2J-AABO TCGA-2J-AABO-01             43                                                         7th                      False               Head of pancreas Pancreatic Adenocarcinoma Pancreatic Adenocarcinoma                    NaN                 nan Ductal and Lobular Neoplasms                nan                   0.2273                 C25.0     8500/3            54.0          PAAD                  14.454665                0:LIVING a8c3e333-865d-4060-8ce4-453aa6f9f0e8 976852dd-7592-46ea-b1a4-6b5b70d20a87                      M0                      N1             Stage IIB                      T3 Infiltrating duct carcinoma, NOS                   Pancreas             False            False          TCGA-PAAD Pancreatic Adenocarcinoma      released         WHITE                              1 Primary solid Tumor   Male          10.0                                               7.5                  Alive            NaN               2013
+paad_tcga_gdc TCGA-2J-AABR TCGA-2J-AABR-01             60                                                         7th                      False Overlapping lesion of pancreas Pancreatic Adenocarcinoma Pancreatic Adenocarcinoma                    NaN                 nan Ductal and Lobular Neoplasms                nan                   0.0011                 C25.8     8500/3             5.0          PAAD                  14.388962                0:LIVING 507a4e05-d5ab-4dbb-9b4f-76b1a21b79dd aa314c08-f2bc-4682-97bc-ad9d25ebc036                      M0                      N0             Stage IIA                      T3 Infiltrating duct carcinoma, NOS                   Pancreas              True            False          TCGA-PAAD Pancreatic Adenocarcinoma      released         WHITE                              1 Primary solid Tumor Female           NaN                                               NaN                  Alive            NaN               2013
+
+==========================================================================================
+2.3) Candidatos típicos (ID / tiempo / evento)
+==========================================================================================
+Candidatos ID: ['Study ID', 'Patient ID', 'Sample ID', 'Other Patient ID', 'Other Sample ID', 'Patient Primary Tumor Site', 'Number of Samples Per Patient', 'Sample Type', "Patient's Vital Status"]
+Candidatos tiempo: ['Diagnosis Age', 'Disease Free (Months)', 'Overall Survival (Months)', 'Primary Diagnosis', 'Year of Diagnosis']
+Candidatos evento: ['Diagnosis Age', 'Disease Free Status', 'Overall Survival Status', 'Primary Diagnosis', "Patient's Vital Status", 'Year of Death', 'Year of Diagnosis']
+
+==========================================================================================
+2.4) Ejemplos y cardinalidad de IDs (si aplica)
+==========================================================================================
+- Study ID: únicos=1 | ejemplos=['paad_tcga_gdc']
+- Patient ID: únicos=40 | ejemplos=['TCGA-2J-AAB8' 'TCGA-2J-AABE' 'TCGA-2J-AABK' 'TCGA-2J-AABO'
+ 'TCGA-2J-AABR' 'TCGA-2J-AABT' 'TCGA-3A-A9I5' 'TCGA-3A-A9I7'
+ 'TCGA-3A-A9IH' 'TCGA-3A-A9IX']
+- Sample ID: únicos=40 | ejemplos=['TCGA-2J-AAB8-01' 'TCGA-2J-AABE-01' 'TCGA-2J-AABK-01' 'TCGA-2J-AABO-01'
+ 'TCGA-2J-AABR-01' 'TCGA-2J-AABT-01' 'TCGA-3A-A9I5-01' 'TCGA-3A-A9I7-01'
+ 'TCGA-3A-A9IH-01' 'TCGA-3A-A9IX-01']
+
+==========================================================================================
+3) attention_weights_train.pkl — Diagnóstico y extracción de posibles IDs
+==========================================================================================
+type: <class 'pandas.core.frame.DataFrame'>
+shape: (2506634, 4)
+columns: ['case_id', 'image_path', 'attention_weight', 'label'] 
+     case_id                                                                                                  image_path  attention_weight  label
+TCGA-HV-A7OL (/home/rdacostav/Documents/NAS/PAAD/Patches/TCGA-HV-A7OL_DX1/TCGA-HV-A7OL_DX1_20x_224px_x15456_y34496.jpg,)      1.094280e-07      1
+TCGA-HV-A7OL (/home/rdacostav/Documents/NAS/PAAD/Patches/TCGA-HV-A7OL_DX1/TCGA-HV-A7OL_DX1_20x_224px_x19040_y68320.jpg,)      1.032414e-04      1
+TCGA-HV-A7OL (/home/rdacostav/Documents/NAS/PAAD/Patches/TCGA-HV-A7OL_DX1/TCGA-HV-A7OL_DX1_20x_224px_x49952_y59584.jpg,)      3.711050e-08      1
+
+IDs extraídos (aprox): 32
+IDs sample: ['TCGA-HV-A5A5', 'TCGA-2J-AABU', 'TCGA-3A-A9I5', 'TCGA-2J-AABT', 'TCGA-2J-AABK', 'TCGA-2J-AABF', 'TCGA-2L-AAQE', 'TCGA-F2-A8YN', 'TCGA-FB-A4P5', 'TCGA-3A-A9IU']
+En sample: 0/10 parecen paths o nombres de archivo.
+
+==========================================================================================
+3) attention_weights_val.pkl — Diagnóstico y extracción de posibles IDs
+==========================================================================================
+type: <class 'pandas.core.frame.DataFrame'>
+shape: (524681, 4)
+columns: ['case_id', 'image_path', 'attention_weight', 'label'] 
+     case_id                                                                                             image_path  attention_weight  label
+TCGA-3A-A9I7 (/home/jjlozanoj/NAS/Data/PAAD/Patches/TCGA-3A-A9I7_DX1/TCGA-3A-A9I7_DX1_20x_224px_x54208_y16800.jpg,)      5.979103e-09      1
+TCGA-3A-A9I7 (/home/jjlozanoj/NAS/Data/PAAD/Patches/TCGA-3A-A9I7_DX1/TCGA-3A-A9I7_DX1_20x_224px_x70336_y34048.jpg,)      1.659815e-08      1
+TCGA-3A-A9I7 (/home/jjlozanoj/NAS/Data/PAAD/Patches/TCGA-3A-A9I7_DX1/TCGA-3A-A9I7_DX1_20x_224px_x77504_y15456.jpg,)      6.378816e-10      1
+
+IDs extraídos (aprox): 8
+IDs sample: ['TCGA-3A-A9I7', 'TCGA-HV-A5A4', 'TCGA-3A-A9J0', 'TCGA-FB-AAPS', 'TCGA-2L-AAQA', 'TCGA-3A-A9IZ', 'TCGA-2J-AABA', 'TCGA-2L-AAQI']
+En sample: 0/8 parecen paths o nombres de archivo.
+
+==========================================================================================
+4) Resumen para tomar decisiones (qué unir y cómo)
+==========================================================================================
+- Latents DF: filas=3,031,315, cols=1,539
+- Metadata cols: ['image_path', 'case', 'label']
+- Sample wsi_id nulos: 0 / 50,000
+- Sample WSI únicos: 1
+- Sample cases únicos: 1
+
+Clínica: disponible.
+- Clinical shape: (40, 42)
+- ID candidates: ['Study ID', 'Patient ID', 'Sample ID', 'Other Patient ID', 'Other Sample ID', 'Patient Primary Tumor Site', 'Number of Samples Per Patient', "Patient's Vital Status"]
+- Time candidates: ['Diagnosis Age', 'Disease Free (Months)', 'Overall Survival (Months)', 'Primary Diagnosis', 'Year of Diagnosis']
+- Event candidates: ['Diagnosis Age', 'Disease Free Status', 'Overall Survival Status', 'Primary Diagnosis', "Patient's Vital Status", 'Year of Death', 'Year of Diagnosis']
+
+Sugerencia de unión clínica:
+1) Si el CSV tiene una columna con IDs tipo 'TCGA-XX-YYYY' => unir por df_latents['case'].
+2) Si el CSV tiene IDs tipo 'TCGA-XX-YYYY_DX1' o similares => unir por wsi_id derivado.
+3) Si no coincide, haremos una función de normalización de IDs (strip sufijos, etc.).
+
+Splits desde attention weights:
+- Train IDs extraídos: 32
+- Val/Test IDs extraídos: 8
+- Heurística nivel Train IDs: unknown
+- Heurística nivel Val/Test IDs: unknown
+
+Recomendación práctica:
+1) Si los IDs en weights son 'patch(image_path)-like': crear split por image_path.
+2) Si son 'wsi_id(slide)-like': derivar wsi_id desde image_path y asignar split por wsi_id.
+3) Si son 'case(patient)-like': asignar split por case.
+
+Siguiente paso: una vez sepamos el nivel, construiremos un df_unificado con columnas:
+  - image_path, case, wsi_id, label, split, (clínica: time/event/...) + embeddings
+y a partir de eso implementamos tus 2 tareas.
+
+==========================================================================================
+FIN
+==========================================================================================
+Si quieres, pega aquí el output completo (o secciones 2 y 3). Con eso te digo exactamente cómo unir todo.

@@ -1,0 +1,70 @@
+{
+  "case": "TCGA-2J-AABF",
+  "svs_path": "/home/facanor/Documents/NAS/jjlozanoj/Data/PAAD/Images/TCGA-2J-AABF_DX1.svs",
+  "thumb_size": [
+    3000,
+    1495
+  ],
+  "dims_level0": [
+    139439,
+    69495
+  ],
+  "n_patches_case": 92910,
+  "n_patches_with_weight": 92910,
+  "n_top_patches": 4646,
+  "n_valid_top_patches_used": 4646,
+  "thr_quantile": 0.99,
+  "thr_value": 0.9999822974205017,
+  "n_components": 3,
+  "components": [
+    {
+      "cc_id": 24,
+      "area_thumb_px": 385,
+      "bbox_thumb": [
+        736,
+        835,
+        760,
+        856
+      ],
+      "peak_thumb_xy": [
+        751,
+        835
+      ],
+      "peak_val": 1.0
+    },
+    {
+      "cc_id": 28,
+      "area_thumb_px": 594,
+      "bbox_thumb": [
+        720,
+        870,
+        742,
+        915
+      ],
+      "peak_thumb_xy": [
+        727,
+        870
+      ],
+      "peak_val": 1.0
+    },
+    {
+      "cc_id": 31,
+      "area_thumb_px": 365,
+      "bbox_thumb": [
+        817,
+        879,
+        846,
+        902
+      ],
+      "peak_thumb_xy": [
+        840,
+        879
+      ],
+      "peak_val": 1.0
+    }
+  ],
+  "split": "train",
+  "os_event": 1,
+  "mask_high_explain": "Binary mask where heatmap >= quantile THR_QUANTILE (computed on heat_disp 0..1).",
+  "note_peak_centered_crops": "Crops are centered at the peak (max heat) inside each connected component."
+}

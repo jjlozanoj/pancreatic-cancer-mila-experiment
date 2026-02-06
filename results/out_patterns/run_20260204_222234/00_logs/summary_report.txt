@@ -1,0 +1,49 @@
+TAREA 2 — SUMMARY REPORT
+
+Generated at: 2026-02-04 22:44:53
+
+
+=== Dataset ===
+
+Cases: 40
+
+Split counts (patch-level): {'train': 2506634, 'test': 524681}
+
+Weight coverage (%): 100.00
+
+
+=== mask_high.png ===
+
+- mask_high.png is a binary mask where heat_disp >= quantile 0.99.
+
+- White pixels = top high-attention regions; connected components are candidate ROIs.
+
+- We extract up to 3 crops per case, centered at the PEAK of each component.
+
+
+=== Quantitative group separation (Alive vs Dead) ===
+
+- centroid_L1_distance: 0.6874
+
+- centroid_L2_distance: 0.2912
+
+- n_alive: 20 | n_dead: 20
+
+
+=== Cluster enrichment (Fisher) ===
+
+Top 5 clusters (smallest Fisher p):
+
+ cluster  mean_prop_dead  mean_prop_alive  fisher_odds  fisher_p  dead_present  dead_absent  alive_present  alive_absent
+       2        0.259823         0.116949     8.142857  0.091476            19            1             14             6
+       0        0.117643         0.018892     6.333333  0.181764            19            1             15             5
+       7        0.127569         0.025488     3.000000  0.190793            10           10              5            15
+       1        0.120753         0.292964          NaN  0.487179            20            0             18             2
+       6        0.103387         0.178523     0.619048  0.731094            13            7             15             5
+
+
+Interpretation guide:
+
+- Low p-values + consistent mean_prop difference => recurring patterns differ Alive vs Dead.
+
+- Mostly large p-values + small centroid distances => patterns are heterogeneous/shared.

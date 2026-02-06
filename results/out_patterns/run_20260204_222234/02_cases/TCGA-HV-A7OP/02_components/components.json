@@ -1,0 +1,24 @@
+{
+  "case": "TCGA-HV-A7OP",
+  "svs_path": "/home/facanor/Documents/NAS/jjlozanoj/Data/PAAD/Images/TCGA-HV-A7OP_DX1.svs",
+  "thumb_size": [
+    3000,
+    777
+  ],
+  "dims_level0": [
+    121512,
+    31501
+  ],
+  "n_patches_case": 8142,
+  "n_patches_with_weight": 8142,
+  "n_top_patches": 407,
+  "n_valid_top_patches_used": 407,
+  "thr_quantile": 0.99,
+  "thr_value": 0.999504804611206,
+  "n_components": 0,
+  "components": [],
+  "split": "train",
+  "os_event": 0,
+  "mask_high_explain": "Binary mask where heatmap >= quantile THR_QUANTILE (computed on heat_disp 0..1).",
+  "note_peak_centered_crops": "Crops are centered at the peak (max heat) inside each connected component."
+}

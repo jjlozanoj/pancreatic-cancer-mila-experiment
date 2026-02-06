@@ -1,0 +1,24 @@
+{
+  "case": "TCGA-2J-AABR",
+  "svs_path": "/home/facanor/Documents/NAS/jjlozanoj/Data/PAAD/Images/TCGA-2J-AABR_DX1.svs",
+  "thumb_size": [
+    2999,
+    1718
+  ],
+  "dims_level0": [
+    135455,
+    77586
+  ],
+  "n_patches_case": 102110,
+  "n_patches_with_weight": 102110,
+  "n_top_patches": 5106,
+  "n_valid_top_patches_used": 5106,
+  "thr_quantile": 0.99,
+  "thr_value": 0.99998939037323,
+  "n_components": 0,
+  "components": [],
+  "split": "train",
+  "os_event": 0,
+  "mask_high_explain": "Binary mask where heatmap >= quantile THR_QUANTILE (computed on heat_disp 0..1).",
+  "note_peak_centered_crops": "Crops are centered at the peak (max heat) inside each connected component."
+}

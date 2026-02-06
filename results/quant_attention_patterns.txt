@@ -1,0 +1,133 @@
+
+==========================================================================================
+TAREA 2 — Quantitative patterns in high-attention regions (v6)
+==========================================================================================
+Start                             : 2026-02-04 22:22:34
+MASTER_META_PKL                   : df_master_meta.pkl
+LATENTS_PKL                       : df_latents_with_clinical.pkl
+ATTN_TRAIN_PKL                    : attention_weights_train.pkl
+ATTN_TEST_PKL                     : attention_weights_val.pkl
+SVS_DIR                           : /home/facanor/Documents/NAS/jjlozanoj/Data/PAAD/Images/
+OUT_ROOT                          : out_patterns
+SAVE_DOWNSAMPLE_FACTOR            : 3
+CROP_LEVEL                        : 0
+CROP_SIZE_READ                    : 1024
+Run dir                           : out_patterns/run_20260204_222234
+
+==========================================================================================
+A) Carga meta + weights
+==========================================================================================
+
+A.2) Merge meta + weights
+------------------------------------------------------------------------------------------
+Coverage by image_path            : 100.00%
+Saved                             : out_patterns/run_20260204_222234/05_diagnostics/merge_attention_diag.json
+Meta rows                         : 3031315
+Cases                             : 40
+Split counts                      : {'train': 2506634, 'test': 524681}
+Weight coverage %                 : 100.00
+Saved                             : out_patterns/run_20260204_222234/01_tables/meta_with_attention.pkl
+
+==========================================================================================
+B) Heatmaps + crops por caso
+==========================================================================================
+WSI files indexed                 : 171
+Cases with WSI found              : 40
+Missing cases                     : 0
+Cases to process                  : 40
+[01/40] Procesando TCGA-2J-AAB6 | patches=92464 | split=train
+[02/40] Procesando TCGA-2J-AAB8 | patches=60007 | split=train
+[03/40] Procesando TCGA-2J-AAB9 | patches=92520 | split=train
+[04/40] Procesando TCGA-2J-AABA | patches=23190 | split=test
+[05/40] Procesando TCGA-2J-AABE | patches=102334 | split=train
+[06/40] Procesando TCGA-2J-AABF | patches=92910 | split=train
+[07/40] Procesando TCGA-2J-AABK | patches=60558 | split=train
+[08/40] Procesando TCGA-2J-AABO | patches=105928 | split=train
+[09/40] Procesando TCGA-2J-AABR | patches=102110 | split=train
+[10/40] Procesando TCGA-2J-AABT | patches=69646 | split=train
+[11/40] Procesando TCGA-2J-AABU | patches=139857 | split=train
+[12/40] Procesando TCGA-2J-AABV | patches=96110 | split=train
+[13/40] Procesando TCGA-2L-AAQA | patches=96309 | split=test
+[14/40] Procesando TCGA-2L-AAQE | patches=71693 | split=train
+[15/40] Procesando TCGA-2L-AAQI | patches=98908 | split=test
+[16/40] Procesando TCGA-2L-AAQJ | patches=66850 | split=train
+[17/40] Procesando TCGA-2L-AAQL | patches=61343 | split=train
+[18/40] Procesando TCGA-3A-A9I5 | patches=29832 | split=train
+[19/40] Procesando TCGA-3A-A9I7 | patches=63217 | split=test
+[20/40] Procesando TCGA-3A-A9I9 | patches=43635 | split=train
+[21/40] Procesando TCGA-3A-A9IB | patches=106645 | split=train
+[22/40] Procesando TCGA-3A-A9IC | patches=74763 | split=train
+[23/40] Procesando TCGA-3A-A9IH | patches=51427 | split=train
+[24/40] Procesando TCGA-3A-A9IU | patches=48897 | split=train
+[25/40] Procesando TCGA-3A-A9IX | patches=58477 | split=train
+[26/40] Procesando TCGA-3A-A9IZ | patches=65212 | split=test
+[27/40] Procesando TCGA-3A-A9J0 | patches=89182 | split=test
+[28/40] Procesando TCGA-3E-AAAY | patches=211148 | split=train
+[29/40] Procesando TCGA-3E-AAAZ | patches=297061 | split=train
+[30/40] Procesando TCGA-F2-A7TX | patches=111613 | split=train
+[31/40] Procesando TCGA-F2-A8YN | patches=50077 | split=train
+[32/40] Procesando TCGA-FB-A4P5 | patches=46886 | split=train
+[33/40] Procesando TCGA-FB-A4P6 | patches=47260 | split=train
+[34/40] Procesando TCGA-FB-A545 | patches=57297 | split=train
+[35/40] Procesando TCGA-FB-AAPS | patches=7671 | split=test
+[36/40] Procesando TCGA-FB-AAPZ | patches=6901 | split=train
+[37/40] Procesando TCGA-HV-A5A4 | patches=80992 | split=test
+[38/40] Procesando TCGA-HV-A5A5 | patches=3628 | split=train
+[39/40] Procesando TCGA-HV-A7OL | patches=38615 | split=train
+[40/40] Procesando TCGA-HV-A7OP | patches=8142 | split=train
+Skipped (exists)                  : 0
+Missing SVS                       : 0
+
+==========================================================================================
+C) Top-att patch set -> merge con latents -> clustering
+==========================================================================================
+Saved                             : out_patterns/run_20260204_222234/01_tables/top_patches_meta.csv
+
+==========================================================================================
+C) Cuantificación: embeddings top-att + clustering
+==========================================================================================
+Top patches (meta)                : 151567
+Top cases                         : 40
+
+C.1) Cargando latents (embeddings)
+------------------------------------------------------------------------------------------
+Latents rows                      : 3031315
+Embedding dims                    : 1536
+
+C.2) Merge top-att patches con latents por image_path
+------------------------------------------------------------------------------------------
+Latents filtered rows (match top_paths): 151567
+Merged rows                       : 151567
+Saved                             : out_patterns/run_20260204_222234/03_quant/top_patches_with_embeddings_meta.csv
+
+C.3) PCA + KMeans
+------------------------------------------------------------------------------------------
+Saved                             : out_patterns/run_20260204_222234/03_quant/top_patches_with_clusters.csv
+
+C.4) Proporciones por caso
+------------------------------------------------------------------------------------------
+Saved                             : out_patterns/run_20260204_222234/03_quant/case_cluster_props.csv
+
+C.5) Enriquecimiento Alive vs Dead (Fisher sobre presencia)
+------------------------------------------------------------------------------------------
+Saved                             : out_patterns/run_20260204_222234/03_quant/cluster_enrichment.csv
+Saved                             : out_patterns/run_20260204_222234/03_quant/global_group_separation.json
+
+==========================================================================================
+D) Montajes rápidos (crops rank=1 Alive vs Dead)
+==========================================================================================
+Saved                             : out_patterns/run_20260204_222234/04_montages/alive_top_attention_montage.png
+Saved                             : out_patterns/run_20260204_222234/04_montages/dead_top_attention_montage.png
+Saved                             : out_patterns/run_20260204_222234/00_logs/summary_report.txt
+
+==========================================================================================
+FIN
+==========================================================================================
+End                               : 2026-02-04 22:44:53
+Run dir                           : out_patterns/run_20260204_222234
+
+Revisa:
+  - out_patterns/run_20260204_222234/02_cases/<CASE>/* (thumb/heat/mask/crops)
+  - out_patterns/run_20260204_222234/03_quant/* (clusters + enrichment + group separation)
+  - out_patterns/run_20260204_222234/04_montages/* (Alive/Dead montages)
+  - out_patterns/run_20260204_222234/00_logs/summary_report.txt

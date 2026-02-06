@@ -1,0 +1,42 @@
+=== CONTEOS (sample aleatorio) ===
+cases únicos (sample): 40
+wsi_id únicos (sample): 42
+split counts (sample):
+split
+train    165357
+val       34643
+Name: count, dtype: int64
+
+=== CONSISTENCIA GLOBAL ===
+Total patches: 3031315
+Split counts (global):
+split
+train    2506634
+val       524681
+Name: count, dtype: int64
+
+Cases en train_cases: 32
+Cases en val_cases: 8
+Cases en meta: 40
+Cases en clínica: 40
+
+Cases en latents sin clínica (count): 0
+Ejemplos: []
+
+Cobertura clínica en patches (nulos):
+os_months nulls: 0
+os_event nulls: 0
+dfs_months nulls: 2280368
+dfs_event nulls: 2280368
+
+WSI únicos (global): 42
+WSI nulos: 0
+
+=== CHECK image_path (sample robusto) ===
+Sample meta paths: 100,000
+Train unique paths: 2,506,634 | Val unique paths: 524,681
+Hits en train: 82,575 (82.58%)
+Hits en val:   17,425 (17.42%)
+Nota: idealmente hit_train + hit_val ~ 100% si el universe de patches coincide y los paths están normalizados igual.
+
+Guardado OK: df_master_meta.pkl

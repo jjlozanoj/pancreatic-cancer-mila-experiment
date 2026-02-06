@@ -1,0 +1,55 @@
+{
+  "case": "TCGA-3A-A9I7",
+  "svs_path": "/home/facanor/Documents/NAS/jjlozanoj/Data/PAAD/Images/TCGA-3A-A9I7_DX1.svs",
+  "thumb_size": [
+    3000,
+    1935
+  ],
+  "dims_level0": [
+    101731,
+    65619
+  ],
+  "n_patches_case": 63217,
+  "n_patches_with_weight": 63217,
+  "n_top_patches": 3161,
+  "n_valid_top_patches_used": 3161,
+  "thr_quantile": 0.99,
+  "thr_value": 0.999968409538269,
+  "n_components": 2,
+  "components": [
+    {
+      "cc_id": 12,
+      "area_thumb_px": 469,
+      "bbox_thumb": [
+        2309,
+        541,
+        2333,
+        570
+      ],
+      "peak_thumb_xy": [
+        2314,
+        541
+      ],
+      "peak_val": 1.0
+    },
+    {
+      "cc_id": 42,
+      "area_thumb_px": 313,
+      "bbox_thumb": [
+        1016,
+        1398,
+        1046,
+        1415
+      ],
+      "peak_thumb_xy": [
+        1036,
+        1398
+      ],
+      "peak_val": 1.0
+    }
+  ],
+  "split": "test",
+  "os_event": 0,
+  "mask_high_explain": "Binary mask where heatmap >= quantile THR_QUANTILE (computed on heat_disp 0..1).",
+  "note_peak_centered_crops": "Crops are centered at the peak (max heat) inside each connected component."
+}

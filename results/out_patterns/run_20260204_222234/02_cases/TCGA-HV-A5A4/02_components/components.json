@@ -1,0 +1,70 @@
+{
+  "case": "TCGA-HV-A5A4",
+  "svs_path": "/home/facanor/Documents/NAS/jjlozanoj/Data/PAAD/Images/TCGA-HV-A5A4_DX1.svs",
+  "thumb_size": [
+    2965,
+    3000
+  ],
+  "dims_level0": [
+    87648,
+    88674
+  ],
+  "n_patches_case": 80992,
+  "n_patches_with_weight": 80992,
+  "n_top_patches": 4050,
+  "n_valid_top_patches_used": 4050,
+  "thr_quantile": 0.99,
+  "thr_value": 0.9999737739562988,
+  "n_components": 3,
+  "components": [
+    {
+      "cc_id": 11,
+      "area_thumb_px": 342,
+      "bbox_thumb": [
+        1673,
+        794,
+        1699,
+        813
+      ],
+      "peak_thumb_xy": [
+        1681,
+        794
+      ],
+      "peak_val": 1.0
+    },
+    {
+      "cc_id": 44,
+      "area_thumb_px": 314,
+      "bbox_thumb": [
+        1470,
+        1279,
+        1503,
+        1291
+      ],
+      "peak_thumb_xy": [
+        1491,
+        1279
+      ],
+      "peak_val": 1.0
+    },
+    {
+      "cc_id": 46,
+      "area_thumb_px": 760,
+      "bbox_thumb": [
+        1468,
+        1300,
+        1504,
+        1331
+      ],
+      "peak_thumb_xy": [
+        1492,
+        1300
+      ],
+      "peak_val": 1.0
+    }
+  ],
+  "split": "test",
+  "os_event": 0,
+  "mask_high_explain": "Binary mask where heatmap >= quantile THR_QUANTILE (computed on heat_disp 0..1).",
+  "note_peak_centered_crops": "Crops are centered at the peak (max heat) inside each connected component."
+}
